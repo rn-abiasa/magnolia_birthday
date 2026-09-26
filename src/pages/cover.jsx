@@ -142,7 +142,7 @@ export default function Cover() {
     e.stopPropagation();
     setIsTransitioning(true);
     setTimeout(() => {
-      navigate("/our-story");
+      navigate("/special-message");
     }, 900);
   };
 

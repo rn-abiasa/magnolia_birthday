@@ -11,11 +11,41 @@ import magnoliaFlowerImg from "../assets/magnolia_flower.webp";
 import melatiFlowerImg from "../assets/melati_flower.webp";
 
 const BACKDROP_FLOWERS = [
-  { className: "flower-bg-l2", baseRot: -24, depth: -30, img: lavenderFlowerImg, alt: "Lavender Flower" },
-  { className: "flower-bg-l1", baseRot: -12, depth: -20, img: magnoliaFlowerImg, alt: "Magnolia Flower" },
-  { className: "flower-bg-mid", baseRot: 1, depth: -25, img: irisFlowerImg, alt: "Iris Flower" },
-  { className: "flower-bg-r1", baseRot: 13, depth: -20, img: melatiFlowerImg, alt: "Melati Flower" },
-  { className: "flower-bg-r2", baseRot: 25, depth: -30, img: lavenderFlowerImg, alt: "Lavender Flower" },
+  {
+    className: "flower-bg-l2",
+    baseRot: -24,
+    depth: -30,
+    img: lavenderFlowerImg,
+    alt: "Lavender Flower",
+  },
+  {
+    className: "flower-bg-l1",
+    baseRot: -12,
+    depth: -20,
+    img: magnoliaFlowerImg,
+    alt: "Magnolia Flower",
+  },
+  {
+    className: "flower-bg-mid",
+    baseRot: 1,
+    depth: -25,
+    img: irisFlowerImg,
+    alt: "Iris Flower",
+  },
+  {
+    className: "flower-bg-r1",
+    baseRot: 13,
+    depth: -20,
+    img: melatiFlowerImg,
+    alt: "Melati Flower",
+  },
+  {
+    className: "flower-bg-r2",
+    baseRot: 25,
+    depth: -30,
+    img: lavenderFlowerImg,
+    alt: "Lavender Flower",
+  },
 ];
 
 const LEFT_STEMS = [
@@ -328,7 +358,6 @@ export default function Cover() {
     };
   }, []);
 
-
   return (
     <div
       className={`garden-wrapper ${isCurtainOpen ? "curtain-opened" : ""} ${
@@ -414,30 +443,15 @@ export default function Cover() {
 
               {/* Konten Surat di Atas Kertas */}
               <div className="env-paper-letter">
-                <span className="env-paper-tag">To My Beloved</span>
-                <h2 className="env-paper-title">Happy Anniversary</h2>
-                <p className="env-paper-subtitle">
-                  Every single day with you is a lovely chapter. Let&apos;s revisit our sweetest memories.
-                </p>
+                <h2 className="env-paper-title">Happy Birthday My Lovee</h2>
+                <p className="env-paper-subtitle">26-09-2026</p>
                 <button
                   type="button"
                   className="env-paper-btn"
                   onClick={handleOpenLetter}
                   aria-label="Open Our Story"
                 >
-                  <span>Open Story</span>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+                  <span>Open</span>
                 </button>
               </div>
             </div>
@@ -456,15 +470,14 @@ export default function Cover() {
       </main>
 
       {/* Tirai Bunga Pembuka Layar (Flower Gate Overlay) */}
-      <div
-        className="flower-curtain"
-        id="flowerCurtain"
-        onClick={openCurtain}
-      >
+      <div className="flower-curtain" id="flowerCurtain" onClick={openCurtain}>
         {/* Sayap Kiri Tirai Bunga */}
         <div className="curtain-wing curtain-left" id="curtainLeft">
           {LEFT_STEMS.map((stem) => (
-            <div key={stem.className} className={`flower-stem ${stem.className}`}>
+            <div
+              key={stem.className}
+              className={`flower-stem ${stem.className}`}
+            >
               <img src={stem.img} alt={stem.alt} className="iris-img" />
             </div>
           ))}
@@ -473,7 +486,10 @@ export default function Cover() {
         {/* Sayap Kanan Tirai Bunga */}
         <div className="curtain-wing curtain-right" id="curtainRight">
           {RIGHT_STEMS.map((stem) => (
-            <div key={stem.className} className={`flower-stem ${stem.className}`}>
+            <div
+              key={stem.className}
+              className={`flower-stem ${stem.className}`}
+            >
               <img src={stem.img} alt={stem.alt} className="iris-img" />
             </div>
           ))}
@@ -482,4 +498,3 @@ export default function Cover() {
     </div>
   );
 }
-

@@ -16,17 +16,20 @@
   --ease-curtain: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: var(--text-dark);
   background-color: #f7f2e9;
   -webkit-font-smoothing: antialiased;
@@ -75,8 +78,14 @@ html, body {
 }
 
 @keyframes sunPulse {
-  0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0.7; }
-  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.95; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.95;
+  }
 }
 
 .meadow-layer {
@@ -89,32 +98,81 @@ html, body {
 
 .layer-back {
   height: 48vh;
-  background: 
-    radial-gradient(ellipse at 25% 100%, #879978 0%, #7d8e6e 60%, transparent 80%),
-    radial-gradient(ellipse at 75% 100%, #9987a0 0%, #897893 50%, transparent 75%),
-    linear-gradient(to top, #7e947b 0%, rgba(142, 168, 140, 0.4) 60%, transparent 100%);
+  background:
+    radial-gradient(
+      ellipse at 25% 100%,
+      #879978 0%,
+      #7d8e6e 60%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse at 75% 100%,
+      #9987a0 0%,
+      #897893 50%,
+      transparent 75%
+    ),
+    linear-gradient(
+      to top,
+      #7e947b 0%,
+      rgba(142, 168, 140, 0.4) 60%,
+      transparent 100%
+    );
   filter: blur(14px);
   opacity: 0.85;
 }
 
 .layer-mid {
   height: 38vh;
-  background: 
-    radial-gradient(circle at 15% 90%, rgba(107, 82, 174, 0.45) 0%, transparent 40%),
-    radial-gradient(circle at 45% 85%, rgba(220, 180, 240, 0.4) 0%, transparent 45%),
-    radial-gradient(circle at 80% 90%, rgba(125, 95, 185, 0.45) 0%, transparent 40%),
-    radial-gradient(circle at 60% 95%, rgba(245, 205, 120, 0.35) 0%, transparent 35%),
-    linear-gradient(to top, #506e4c 0%, rgba(95, 126, 92, 0.6) 50%, transparent 100%);
+  background:
+    radial-gradient(
+      circle at 15% 90%,
+      rgba(107, 82, 174, 0.45) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 45% 85%,
+      rgba(220, 180, 240, 0.4) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(125, 95, 185, 0.45) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 60% 95%,
+      rgba(245, 205, 120, 0.35) 0%,
+      transparent 35%
+    ),
+    linear-gradient(
+      to top,
+      #506e4c 0%,
+      rgba(95, 126, 92, 0.6) 50%,
+      transparent 100%
+    );
   filter: blur(6px);
   opacity: 0.9;
 }
 
 .layer-front {
   height: 24vh;
-  background: 
-    radial-gradient(ellipse at 30% 100%, rgba(61, 90, 69, 0.8) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 100%, rgba(74, 62, 114, 0.35) 0%, transparent 55%),
-    linear-gradient(to top, #395238 0%, rgba(61, 90, 69, 0.3) 70%, transparent 100%);
+  background:
+    radial-gradient(
+      ellipse at 30% 100%,
+      rgba(61, 90, 69, 0.8) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 100%,
+      rgba(74, 62, 114, 0.35) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      to top,
+      #395238 0%,
+      rgba(61, 90, 69, 0.3) 70%,
+      transparent 100%
+    );
   filter: blur(1.5px);
   opacity: 0.95;
 }
@@ -140,8 +198,12 @@ html, body {
     transform: translateY(105vh) translateX(0) rotate(0deg) scale(0.6);
     opacity: 0;
   }
-  15% { opacity: 0.75; }
-  85% { opacity: 0.7; }
+  15% {
+    opacity: 0.75;
+  }
+  85% {
+    opacity: 0.7;
+  }
   100% {
     transform: translateY(-10vh) translateX(120px) rotate(420deg) scale(1);
     opacity: 0;
@@ -154,16 +216,26 @@ html, body {
   height: 5px;
   background: #ffffff;
   border-radius: 50%;
-  box-shadow: 0 0 10px #ffeaa7, 0 0 20px #ffeaa7;
+  box-shadow:
+    0 0 10px #ffeaa7,
+    0 0 20px #ffeaa7;
   pointer-events: none;
   opacity: 0;
   animation: floatSparkle ease-in-out infinite alternate;
 }
 
 @keyframes floatSparkle {
-  0% { transform: translateY(0) scale(0.5); opacity: 0.2; }
-  50% { opacity: 0.9; }
-  100% { transform: translateY(-40px) scale(1.3); opacity: 0.3; }
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.3);
+    opacity: 0.3;
+  }
 }
 
 /* ==========================================================================
@@ -180,7 +252,9 @@ html, body {
   padding: 2rem;
   opacity: 0;
   transform: scale(0.94);
-  transition: opacity 1.8s var(--ease-gentle), transform 1.8s var(--ease-gentle);
+  transition:
+    opacity 1.8s var(--ease-gentle),
+    transform 1.8s var(--ease-gentle);
   pointer-events: none;
 }
 
@@ -240,7 +314,9 @@ body.curtain-opened .garden-content {
   );
   filter: blur(14px);
   transform: translateZ(-35px) scale(0.95);
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
   pointer-events: none;
   z-index: 0;
 }
@@ -359,33 +435,63 @@ body.curtain-opened .garden-content {
 
 /* Goyangan Angin Alami Saat Idle */
 @keyframes envFlowerIdleL2 {
-  0% { transform: rotate(0deg) translateY(0); }
-  50% { transform: rotate(2.5deg) translateY(-4px) skewX(1deg); }
-  100% { transform: rotate(-2deg) translateY(2px) skewX(-1deg); }
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2.5deg) translateY(-4px) skewX(1deg);
+  }
+  100% {
+    transform: rotate(-2deg) translateY(2px) skewX(-1deg);
+  }
 }
 
 @keyframes envFlowerIdleL1 {
-  0% { transform: rotate(0deg) translateY(0); }
-  50% { transform: rotate(2.8deg) translateY(-5px) skewX(0.8deg); }
-  100% { transform: rotate(-2.2deg) translateY(1px) skewX(-0.8deg); }
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2.8deg) translateY(-5px) skewX(0.8deg);
+  }
+  100% {
+    transform: rotate(-2.2deg) translateY(1px) skewX(-0.8deg);
+  }
 }
 
 @keyframes envFlowerIdleMid {
-  0% { transform: rotate(0deg) translateY(0); }
-  50% { transform: rotate(2.4deg) translateY(-6px) skewX(1.2deg); }
-  100% { transform: rotate(-2.4deg) translateY(2px) skewX(-1.2deg); }
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2.4deg) translateY(-6px) skewX(1.2deg);
+  }
+  100% {
+    transform: rotate(-2.4deg) translateY(2px) skewX(-1.2deg);
+  }
 }
 
 @keyframes envFlowerIdleR1 {
-  0% { transform: rotate(0deg) translateY(0); }
-  50% { transform: rotate(2.2deg) translateY(-5px) skewX(-0.8deg); }
-  100% { transform: rotate(-2.8deg) translateY(1px) skewX(0.8deg); }
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2.2deg) translateY(-5px) skewX(-0.8deg);
+  }
+  100% {
+    transform: rotate(-2.8deg) translateY(1px) skewX(0.8deg);
+  }
 }
 
 @keyframes envFlowerIdleR2 {
-  0% { transform: rotate(0deg) translateY(0); }
-  50% { transform: rotate(2deg) translateY(-4px) skewX(-1deg); }
-  100% { transform: rotate(-2.5deg) translateY(2px) skewX(1deg); }
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2deg) translateY(-4px) skewX(-1deg);
+  }
+  100% {
+    transform: rotate(-2.5deg) translateY(2px) skewX(1deg);
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -394,60 +500,104 @@ body.curtain-opened .garden-content {
    yang tersenggol dan terayun anggun
    -------------------------------------------------------------------------- */
 .envelope-stage.is-hovered .flower-bg-l2 .env-flower-inner {
-  animation: envFlowerHoverL2 2.2s cubic-bezier(0.44, 0.05, 0.55, 0.95) infinite alternate;
+  animation: envFlowerHoverL2 2.2s cubic-bezier(0.44, 0.05, 0.55, 0.95) infinite
+    alternate;
 }
 
 .envelope-stage.is-hovered .flower-bg-l1 .env-flower-inner {
-  animation: envFlowerHoverL1 2.5s cubic-bezier(0.44, 0.05, 0.55, 0.95) 0.15s infinite alternate;
+  animation: envFlowerHoverL1 2.5s cubic-bezier(0.44, 0.05, 0.55, 0.95) 0.15s
+    infinite alternate;
 }
 
 .envelope-stage.is-hovered .flower-bg-mid .env-flower-inner {
-  animation: envFlowerHoverMid 2.7s cubic-bezier(0.44, 0.05, 0.55, 0.95) 0.3s infinite alternate;
+  animation: envFlowerHoverMid 2.7s cubic-bezier(0.44, 0.05, 0.55, 0.95) 0.3s
+    infinite alternate;
 }
 
 .envelope-stage.is-hovered .flower-bg-r1 .env-flower-inner {
-  animation: envFlowerHoverR1 2.4s cubic-bezier(0.44, 0.05, 0.55, 0.95) 0.2s infinite alternate;
+  animation: envFlowerHoverR1 2.4s cubic-bezier(0.44, 0.05, 0.55, 0.95) 0.2s
+    infinite alternate;
 }
 
 .envelope-stage.is-hovered .flower-bg-r2 .env-flower-inner {
-  animation: envFlowerHoverR2 2.1s cubic-bezier(0.44, 0.05, 0.55, 0.95) 0.4s infinite alternate;
+  animation: envFlowerHoverR2 2.1s cubic-bezier(0.44, 0.05, 0.55, 0.95) 0.4s
+    infinite alternate;
 }
 
 @keyframes envFlowerHoverL2 {
-  0% { transform: rotate(-6deg) translateY(-6px) skewX(-2deg); }
-  30% { transform: rotate(4.5deg) translateY(2px) skewX(1.5deg); }
-  65% { transform: rotate(-3.5deg) translateY(-3px) skewX(-1deg); }
-  100% { transform: rotate(5.5deg) translateY(3px) skewX(2deg); }
+  0% {
+    transform: rotate(-6deg) translateY(-6px) skewX(-2deg);
+  }
+  30% {
+    transform: rotate(4.5deg) translateY(2px) skewX(1.5deg);
+  }
+  65% {
+    transform: rotate(-3.5deg) translateY(-3px) skewX(-1deg);
+  }
+  100% {
+    transform: rotate(5.5deg) translateY(3px) skewX(2deg);
+  }
 }
 
 @keyframes envFlowerHoverL1 {
-  0% { transform: rotate(-4.5deg) translateY(-8px) skewX(-1.5deg); }
-  35% { transform: rotate(5deg) translateY(3px) skewX(1.8deg); }
-  70% { transform: rotate(-2.8deg) translateY(-4px) skewX(-1.2deg); }
-  100% { transform: rotate(4.2deg) translateY(4px) skewX(1.4deg); }
+  0% {
+    transform: rotate(-4.5deg) translateY(-8px) skewX(-1.5deg);
+  }
+  35% {
+    transform: rotate(5deg) translateY(3px) skewX(1.8deg);
+  }
+  70% {
+    transform: rotate(-2.8deg) translateY(-4px) skewX(-1.2deg);
+  }
+  100% {
+    transform: rotate(4.2deg) translateY(4px) skewX(1.4deg);
+  }
 }
 
 @keyframes envFlowerHoverMid {
-  0% { transform: rotate(-3.5deg) translateY(-10px) skewX(-1deg); }
-  28% { transform: rotate(4deg) translateY(4px) skewX(1.2deg); }
-  60% { transform: rotate(-4deg) translateY(-5px) skewX(-1.5deg); }
-  100% { transform: rotate(3.2deg) translateY(5px) skewX(1deg); }
+  0% {
+    transform: rotate(-3.5deg) translateY(-10px) skewX(-1deg);
+  }
+  28% {
+    transform: rotate(4deg) translateY(4px) skewX(1.2deg);
+  }
+  60% {
+    transform: rotate(-4deg) translateY(-5px) skewX(-1.5deg);
+  }
+  100% {
+    transform: rotate(3.2deg) translateY(5px) skewX(1deg);
+  }
 }
 
 @keyframes envFlowerHoverR1 {
-  0% { transform: rotate(5.2deg) translateY(-8px) skewX(1.8deg); }
-  32% { transform: rotate(-4.5deg) translateY(3px) skewX(-1.5deg); }
-  68% { transform: rotate(3.8deg) translateY(-4px) skewX(1.2deg); }
-  100% { transform: rotate(-4deg) translateY(4px) skewX(-1.4deg); }
+  0% {
+    transform: rotate(5.2deg) translateY(-8px) skewX(1.8deg);
+  }
+  32% {
+    transform: rotate(-4.5deg) translateY(3px) skewX(-1.5deg);
+  }
+  68% {
+    transform: rotate(3.8deg) translateY(-4px) skewX(1.2deg);
+  }
+  100% {
+    transform: rotate(-4deg) translateY(4px) skewX(-1.4deg);
+  }
 }
 
 @keyframes envFlowerHoverR2 {
-  0% { transform: rotate(6.5deg) translateY(-6px) skewX(2deg); }
-  30% { transform: rotate(-5deg) translateY(2px) skewX(-1.8deg); }
-  65% { transform: rotate(4.2deg) translateY(-3px) skewX(1.4deg); }
-  100% { transform: rotate(-5.8deg) translateY(3px) skewX(-2deg); }
+  0% {
+    transform: rotate(6.5deg) translateY(-6px) skewX(2deg);
+  }
+  30% {
+    transform: rotate(-5deg) translateY(2px) skewX(-1.8deg);
+  }
+  65% {
+    transform: rotate(4.2deg) translateY(-3px) skewX(1.4deg);
+  }
+  100% {
+    transform: rotate(-5.8deg) translateY(3px) skewX(-2deg);
+  }
 }
-
 
 /* --------------------------------------------------------------------------
    3 LAYER TIMPA AMPLOP PRESISI:
@@ -527,18 +677,8 @@ body.curtain-opened .garden-content {
   pointer-events: auto;
 }
 
-.env-paper-tag {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #8f74a8;
-  margin-bottom: 0.25rem;
-}
-
 .env-paper-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-family: "Yuyu", sans-serif;
   font-size: clamp(1.4rem, 5vw, 1.85rem);
   font-weight: 700;
   line-height: 1.15;
@@ -548,7 +688,7 @@ body.curtain-opened .garden-content {
 }
 
 .env-paper-subtitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: clamp(0.68rem, 2.4vw, 0.78rem);
   color: #6a5a7c;
   line-height: 1.4;
@@ -563,7 +703,7 @@ body.curtain-opened .garden-content {
   border: none;
   border-radius: 24px;
   padding: 0.45rem 1.25rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -590,19 +730,27 @@ body.curtain-opened .garden-content {
 .garden-wrapper.transitioning-out .envelope-3d {
   transform: translateY(-60px) scale(0.92) !important;
   opacity: 0;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease !important;
+  transition:
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.8s ease !important;
 }
 
 .garden-wrapper.transitioning-out .env-layer-paper-wrap {
   transform: translateX(-50%) translateY(-90%) translateZ(24px) scale(1.1) !important;
   opacity: 0.8;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease !important;
+  transition:
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.8s ease !important;
 }
 
 .page-transition-overlay {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(255, 245, 235, 0.95) 0%, rgba(220, 205, 240, 0.98) 100%);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 245, 235, 0.95) 0%,
+    rgba(220, 205, 240, 0.98) 100%
+  );
   z-index: 999;
   opacity: 0;
   pointer-events: none;
@@ -613,7 +761,6 @@ body.curtain-opened .garden-content {
   opacity: 1;
   pointer-events: auto;
 }
-
 
 /* Layer 3: Depan Amplop (Lipatan kantong segitiga depan) */
 .env-layer-front {
@@ -640,7 +787,9 @@ body.curtain-opened .garden-content {
   z-index: 100;
   pointer-events: auto;
   overflow: hidden;
-  transition: opacity 1s ease 2s, visibility 1s ease 2.5s;
+  transition:
+    opacity 1s ease 2s,
+    visibility 1s ease 2.5s;
 }
 
 body.curtain-opened .flower-curtain {
@@ -714,7 +863,8 @@ body.curtain-opened .curtain-right {
   max-width: 440px;
   height: 105vh;
   z-index: 4;
-  animation: windBreezeLeftCross 8.6s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1.2s infinite;
+  animation: windBreezeLeftCross 8.6s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1.2s
+    infinite;
 }
 
 .stem-l-3 {
@@ -723,7 +873,8 @@ body.curtain-opened .curtain-right {
   max-width: 410px;
   height: 100vh;
   z-index: 3;
-  animation: windBreezeLeftDeep 6.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) 2.1s infinite;
+  animation: windBreezeLeftDeep 6.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) 2.1s
+    infinite;
 }
 
 .stem-l-4 {
@@ -733,7 +884,8 @@ body.curtain-opened .curtain-right {
   height: 94vh;
   z-index: 2;
   filter: brightness(0.9) blur(1px);
-  animation: windBreezeLeft 7.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.6s infinite;
+  animation: windBreezeLeft 7.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.6s
+    infinite;
 }
 
 .stem-l-5 {
@@ -743,7 +895,8 @@ body.curtain-opened .curtain-right {
   height: 86vh;
   z-index: 1;
   filter: brightness(0.82) blur(3px);
-  animation: windBreezeLeftCross 9.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) 2.8s infinite;
+  animation: windBreezeLeftCross 9.2s cubic-bezier(0.445, 0.05, 0.55, 0.95) 2.8s
+    infinite;
 }
 
 /* Sayap Kanan: Condong menyilang ke arah kiri / tengah */
@@ -762,7 +915,8 @@ body.curtain-opened .curtain-right {
   max-width: 440px;
   height: 105vh;
   z-index: 4;
-  animation: windBreezeRightCross 7.4s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1.5s infinite;
+  animation: windBreezeRightCross 7.4s cubic-bezier(0.445, 0.05, 0.55, 0.95)
+    1.5s infinite;
 }
 
 .stem-r-3 {
@@ -771,7 +925,8 @@ body.curtain-opened .curtain-right {
   max-width: 410px;
   height: 100vh;
   z-index: 3;
-  animation: windBreezeRightDeep 8.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.8s infinite;
+  animation: windBreezeRightDeep 8.8s cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.8s
+    infinite;
 }
 
 .stem-r-4 {
@@ -781,7 +936,8 @@ body.curtain-opened .curtain-right {
   height: 94vh;
   z-index: 2;
   filter: brightness(0.9) blur(1px);
-  animation: windBreezeRight 7.0s cubic-bezier(0.445, 0.05, 0.55, 0.95) 2.3s infinite;
+  animation: windBreezeRight 7s cubic-bezier(0.445, 0.05, 0.55, 0.95) 2.3s
+    infinite;
 }
 
 .stem-r-5 {
@@ -791,7 +947,8 @@ body.curtain-opened .curtain-right {
   height: 86vh;
   z-index: 1;
   filter: brightness(0.82) blur(3px);
-  animation: windBreezeRightCross 9.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) 1.1s infinite;
+  animation: windBreezeRightCross 9.5s cubic-bezier(0.445, 0.05, 0.55, 0.95)
+    1.1s infinite;
 }
 
 /* ==========================================================================
@@ -938,7 +1095,9 @@ body.curtain-opened .curtain-right {
   gap: 12px;
   z-index: 10;
   cursor: pointer;
-  transition: opacity 0.8s ease, transform 0.8s var(--ease-gentle);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s var(--ease-gentle);
   animation: promptPulse 2.8s infinite ease-in-out;
 }
 
@@ -955,13 +1114,22 @@ body.curtain-opened .curtain-right {
 }
 
 @keyframes promptPulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.04); }
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.04);
+  }
 }
 
 @keyframes spinSlow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 body.curtain-opened .curtain-prompt {
@@ -972,14 +1140,40 @@ body.curtain-opened .curtain-prompt {
 
 /* 4. RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-  .curtain-wing { width: 92vw; }
-  .stem-l-1, .stem-r-1 { width: 62vw; }
-  .stem-l-2, .stem-r-2 { width: 56vw; left: 16vw; }
-  .stem-r-2 { right: 16vw; left: auto; }
-  .stem-l-3, .stem-r-3 { width: 50vw; left: 32vw; }
-  .stem-r-3 { right: 32vw; left: auto; }
-  .envelope-3d { width: min(300px, 84vw); }
-  .curtain-prompt { width: 85%; max-width: 320px; padding: 0.9rem 1.4rem; }
-  .curtain-prompt .prompt-text { font-size: 0.82rem; }
+  .curtain-wing {
+    width: 92vw;
+  }
+  .stem-l-1,
+  .stem-r-1 {
+    width: 62vw;
+  }
+  .stem-l-2,
+  .stem-r-2 {
+    width: 56vw;
+    left: 16vw;
+  }
+  .stem-r-2 {
+    right: 16vw;
+    left: auto;
+  }
+  .stem-l-3,
+  .stem-r-3 {
+    width: 50vw;
+    left: 32vw;
+  }
+  .stem-r-3 {
+    right: 32vw;
+    left: auto;
+  }
+  .envelope-3d {
+    width: min(300px, 84vw);
+  }
+  .curtain-prompt {
+    width: 85%;
+    max-width: 320px;
+    padding: 0.9rem 1.4rem;
+  }
+  .curtain-prompt .prompt-text {
+    font-size: 0.82rem;
+  }
 }
-

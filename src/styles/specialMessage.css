@@ -1,0 +1,324 @@
+/* ==========================================================================
+   DANAU SIANG - STYLESHEET (Bagian 1: Variabel, Wrapper & Langit)
+   Latar danau SIANG HARI bergaya depth blur, disusun mengikuti pola latar
+   pada cover.css (.sky-gradient / .sun-glow / .meadow-layer) supaya
+   perpindahan halaman Cover -> Special Message tidak berubah drastis
+   dari sisi waktu (tetap siang) dan tidak terlalu detail.
+   ========================================================================== */
+
+:root {
+  --lake-water-pale: rgba(196, 214, 228, 0.5);
+  --lake-water-shallow: rgba(150, 178, 200, 0.55);
+  --lake-water-mid: #8fb2cc;
+  --lake-water-deep: #6f97b8;
+  --lake-shore-dark: rgba(44, 66, 54, 0.9);
+  --lake-ease-gentle: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 1. WRAPPER HALAMAN & OVERLAY MASUK (NYAMBUNG DARI COVER) */
+.lake-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  /* Warna dasar diambil dari ujung bawah langit cover agar tidak berkedip */
+  background-color: #e7e3bf;
+}
+
+/* Overlay penutup sesaat ketika halaman baru dibuka, lalu memudar.
+   Warnanya sengaja identik dengan .page-transition-overlay pada cover.css. */
+.special-message-enter-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 245, 235, 0.95) 0%,
+    rgba(220, 205, 240, 0.98) 100%
+  );
+  opacity: 1;
+  transition: opacity 1.1s var(--lake-ease-gentle);
+}
+
+.special-message-enter-overlay.is-cleared {
+  opacity: 0;
+}
+
+/* 2. LATAR DANAU (LATAR TETAP DI BELAKANG KONTEN) */
+.lake-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 3. LANGIT SIANG (STOP WARNA SAMA PERSIS DENGAN .sky-gradient COVER) */
+.lake-sky-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #9cb8da 0%,
+    #c4d5ea 25%,
+    #f2dbdf 50%,
+    #f8e3c5 75%,
+    #e7e3bf 100%
+  );
+}
+
+/* 4. CAHAYA MATAHARI SIANG (PARAMETER SAMA DENGAN .sun-glow COVER) */
+.lake-sun-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 245, 215, 0.7) 0%,
+    rgba(255, 225, 170, 0.35) 45%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  filter: blur(40px);
+  animation: lakeSunPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes lakeSunPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.95;
+  }
+}
+
+/* 5. TIGA LAPISAN SILUET DANAU (DEPTH BLUR) */
+.lake-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+/* Kadar blur sama dengan .layer-back (14px) & .layer-mid (6px) pada cover.css.
+   Ditulis ter-scope (.lake-layer.blur-*) agar kelas blur-heavy / blur-soft
+   yang dipakai cover.jsx tidak ikut tertimpa. */
+.lake-layer.blur-heavy {
+  filter: blur(14px);
+}
+
+.lake-layer.blur-soft {
+  filter: blur(6px);
+}
+
+/* Air paling jauh + siluet perbukitan seberang: paling kabur */
+.lake-layer-far {
+  height: 48vh;
+  opacity: 0.85;
+  background:
+    radial-gradient(
+      ellipse 46% 70% at 20% 42%,
+      rgba(126, 148, 150, 0.55) 0%,
+      rgba(126, 148, 150, 0) 78%
+    ),
+    radial-gradient(
+      ellipse 58% 60% at 72% 38%,
+      rgba(134, 152, 156, 0.5) 0%,
+      rgba(134, 152, 156, 0) 76%
+    ),
+    /* jalur pantulan matahari di permukaan air */
+    radial-gradient(
+      ellipse 24% 92% at 50% 0%,
+      rgba(255, 240, 205, 0.6) 0%,
+      rgba(255, 240, 205, 0.22) 55%,
+      rgba(255, 240, 205, 0) 82%
+    ),
+    /* bidang air yang memantulkan langit */
+    linear-gradient(
+      to top,
+      var(--lake-water-shallow) 0%,
+      var(--lake-water-pale) 55%,
+      rgba(226, 236, 244, 0) 100%
+    );
+}
+
+/* Badan air: garis riak halus & lanjutan pantulan cahaya */
+.lake-layer-mid {
+  height: 36vh;
+  opacity: 0.9;
+  background:
+    radial-gradient(
+      ellipse 20% 80% at 50% 0%,
+      rgba(255, 240, 205, 0.28) 0%,
+      rgba(255, 240, 205, 0) 78%
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.22) 0px,
+      rgba(255, 255, 255, 0.22) 1px,
+      rgba(255, 255, 255, 0) 1px,
+      rgba(255, 255, 255, 0) 11px
+    ),
+    linear-gradient(
+      to top,
+      var(--lake-water-deep) 0%,
+      var(--lake-water-mid) 45%,
+      rgba(168, 198, 218, 0.7) 78%,
+      rgba(196, 214, 228, 0) 100%
+    );
+}
+
+/* Tepi danau terdekat: siluet gelap, hampir tajam (foreground out of focus) */
+.lake-layer-near {
+  height: 22vh;
+  opacity: 0.9;
+  filter: blur(1.5px);
+  background:
+    radial-gradient(
+      ellipse 34% 100% at 12% 100%,
+      rgba(63, 90, 74, 0.85) 0%,
+      rgba(63, 90, 74, 0.32) 58%,
+      rgba(63, 90, 74, 0) 84%
+    ),
+    radial-gradient(
+      ellipse 40% 100% at 52% 100%,
+      rgba(53, 78, 64, 0.8) 0%,
+      rgba(53, 78, 64, 0.28) 60%,
+      rgba(53, 78, 64, 0) 86%
+    ),
+    radial-gradient(
+      ellipse 30% 100% at 88% 100%,
+      rgba(58, 84, 70, 0.78) 0%,
+      rgba(58, 84, 70, 0.26) 58%,
+      rgba(58, 84, 70, 0) 84%
+    ),
+    linear-gradient(
+      to top,
+      var(--lake-shore-dark) 0%,
+      rgba(52, 76, 62, 0.35) 55%,
+      rgba(52, 76, 62, 0) 100%
+    );
+}
+
+/* 6. PARTIKEL RINGAN: SERPIHAN & KILAU MELAYANG */
+.lake-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.lake-petal {
+  position: absolute;
+  top: 0;
+  border-radius: 50% 0 50% 50%;
+  pointer-events: none;
+  opacity: 0;
+  animation: lakeFloatPetal linear infinite;
+}
+
+@keyframes lakeFloatPetal {
+  0% {
+    transform: translateY(105vh) translateX(0) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(120px) rotate(420deg) scale(1);
+    opacity: 0;
+  }
+}
+
+.lake-sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow:
+    0 0 10px rgba(255, 236, 200, 0.95),
+    0 0 20px rgba(255, 226, 170, 0.75);
+  pointer-events: none;
+  opacity: 0;
+  animation: lakeFloatSparkle ease-in-out infinite alternate;
+}
+
+@keyframes lakeFloatSparkle {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.3);
+    opacity: 0.3;
+  }
+}
+
+/* 7. KONTEN UTAMA HALAMAN (MASIH KOSONG, SIAP DIISI) */
+.lake-content {
+  position: relative;
+  z-index: 5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 1.6s var(--lake-ease-gentle) 0.4s;
+}
+
+.lake-wrapper.is-ready .lake-content {
+  opacity: 1;
+}
+
+/* 8. AKSESIBILITAS: MATIKAN ANIMASI BAGI PENGGUNA YANG SENSITIF GERAK */
+@media (prefers-reduced-motion: reduce) {
+  .lake-sun-glow,
+  .lake-petal,
+  .lake-sparkle {
+    animation: none !important;
+  }
+
+  /* Partikel yang posisinya bergantung pada animasi disembunyikan */
+  .lake-petal {
+    display: none;
+  }
+
+  .lake-sparkle {
+    opacity: 0.5;
+  }
+}
+
+/* 9. RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .lake-sun-glow {
+    width: 460px;
+    height: 460px;
+  }
+
+  .lake-layer-far {
+    height: 42vh;
+  }
+
+  .lake-layer-mid {
+    height: 32vh;
+  }
+
+  .lake-layer-near {
+    height: 18vh;
+  }
+}

@@ -4,16 +4,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 
 import Cover from "./pages/cover";
-import OurStory from "./pages/ourStory";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Cover />,
-  },
-  {
-    path: "/our-story",
-    element: <OurStory />,
   },
 ]);
 
@@ -22,4 +17,3 @@ createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </StrictMode>,
 );
-

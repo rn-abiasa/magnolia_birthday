@@ -7,3 +7,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.yuyu {
+  fonnt-family: "Yuyu", sans-serif;
+}
+
+.pacifico {
+  font-family: "Pacifico", cursive;
+}

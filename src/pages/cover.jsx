@@ -9,6 +9,7 @@ import irisFlowerImg from "../assets/iris_flower_v1.webp";
 import lavenderFlowerImg from "../assets/lavender_flower.webp";
 import magnoliaFlowerImg from "../assets/magnolia_flower.webp";
 import melatiFlowerImg from "../assets/melati_flower.webp";
+import siriWithHatImg from "../assets/siri_with_hat.webp";
 
 const BACKDROP_FLOWERS = [
   {
@@ -461,6 +462,13 @@ export default function Cover() {
               src={envelopeFrontImg}
               alt="Amplop Depan"
               className="env-layer env-layer-front"
+            />
+
+            {/* Dekorasi Karakter Siri Menempel di Badan Amplop */}
+            <img
+              src={siriWithHatImg}
+              alt="Siri with Hat Decoration"
+              className="env-envelope-sticker-siri"
             />
 
             {/* Bayangan 3D di bawah amplop */}
